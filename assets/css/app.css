@@ -27,6 +27,9 @@ html{
     font-family: var(--ff-oxygen);
     overflow-x: hidden;
 }
+body{
+    overflow-x: hidden;
+}
 ::after,
 ::before{
     box-sizing: inherit;
@@ -304,10 +307,11 @@ nav::before{
     .nav-toggle{
         display: block;
         z-index: 99;
+        font-size: 2rem;
     }
     .nav-active .nav-toggle .toggle-icon[name="nav-close"]{
         display: block;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
     .nav-active .nav-toggle .toggle-icon[name="nav-bar"]{
         display: none;
@@ -315,7 +319,7 @@ nav::before{
     nav{
         position: absolute;
         height: 100vh;
-        width: 50vw;
+        width: 70vw;
         top: 0;
         right: 0;
         background-color: rgba(255,255,255, .2);
@@ -324,6 +328,7 @@ nav::before{
         opacity: 0;
         visibility: hidden;
         transition: all .3s ease-out;
+        position: fixed;
     }
     .nav-active nav{
         transform: translateX(0);
@@ -344,6 +349,9 @@ nav::before{
         justify-content: flex-start;
         gap: 2rem;
         margin-top: 10rem;
+    }
+    .nav-elements a{
+        font-size: 1.125rem;
     }
     nav::before{
         display: none;
@@ -374,6 +382,16 @@ nav::before{
 }
 @media only screen and (max-width: 420px){
     html{
-        font-size: 65%;
+        font-size: 70%;
+    }
+    nav{
+        width: 100vw;
+    }
+    .nav-elements{
+        align-items: center;
+        gap: 2rem;
+    }
+    .nav-elements a{
+        font-size: 1.125rem;
     }
 }
