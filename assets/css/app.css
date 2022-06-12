@@ -354,58 +354,62 @@ nav::before{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
     gap: 2rem;
+    padding: 3rem 0;
 }
 .products-content .p-card{
-    text-align: center;
     border: var(--border);
+    border-radius: 10px;
     position: relative;
     overflow: hidden;
-    background: var(--clr-skyblue);
-    height: 22.8rem;
-    border-radius: 10px;
+    background: var(--clr-white);
+    color: var(--clr-green);
+}
+.products-content .p-card:hover.p-card{
+    background: var(--clr-green);
+    color: var(--clr-white);
+    transition: background .3s ease-in-out;
 }
 .products-content .p-card img{
     width: 100%;
 }
 .products-content .p-card .p-card-inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 87.5%;
     display: flex;
     flex-direction: column;
+    padding: 2rem;
     align-items: flex-start;
-    position: absolute;
-    background: rgba(0,0,0, .8);
-    width: 100%;
-    padding: 1.5rem;
+    justify-content: center;
     gap: 1rem;
-    top: 10.2rem;
-    transform: translateY(100%);
+    transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: all .1s ease-out;
+    transition: all .3s ease-out;
 }
 @supports(backdrop-filter: blur(1rem)){
     .products-content .p-card .p-card-inner{
-        background: rgba(0,0,0, .2);
-        backdrop-filter: blur(1rem);
+        background: rgba(0, 0, 0, .1);
+        backdrop-filter: blur(.3rem);
     }
 }
 .products-content .p-card:hover .p-card-inner{
-    transform: translateY(0);
+    transform: translateX(0%);
     opacity: 1;
     visibility: visible;
 }
-.products-content .p-card:hover.p-card{
-    background: var(--clr-green);
-}
 .products-content .p-card .p-card-inner h2{
-    margin: 0;
+    margin-bottom: 0;
     color: var(--clr-yellow);
 }
 .products-content .p-card .p-card-inner h2 span{
-    margin-left: 1rem;
     color: var(--clr-white);
+    margin-left: 1rem;
 }
 .products-content .p-card .p-card-inner div span{
-    color: var(--clr-yellow);
+    color: var(--clr-green);
 }
 /* ========Media Design========= */
 
@@ -512,6 +516,9 @@ nav::before{
     .exprience-content .e-cont{
         transform: scale(100%);
     }
+    /* .products-content .p-card .p-card-inner{
+        height: 91.5%;
+    } */
 }
 @media only screen and (max-width: 420px){
     html{
@@ -529,5 +536,8 @@ nav::before{
     }
     .exprience-content{
         width: 100%;
+    }
+    .products-content .p-card .p-card-inner{
+        align-items: center;
     }
 }
